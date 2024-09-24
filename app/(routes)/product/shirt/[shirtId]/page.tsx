@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import { InfoProduct } from "./components/InfoProduct/InfoProduct";
+import { InfoProduct, Shirt } from "./components/InfoProduct/InfoProduct";
 
 interface ShirtPageProps {
   params: {
@@ -9,6 +9,7 @@ interface ShirtPageProps {
   };
 }
 
+// Ajuste en el tipo de shirt para que sea compatible
 export async function generateMetadata({ params }: ShirtPageProps) {
   const shirt = await db.shirt.findUnique({
     where: { id: params.shirtId },
@@ -22,12 +23,12 @@ export async function generateMetadata({ params }: ShirtPageProps) {
 
   return {
     title: `${shirt.productName} | Shopy's`,
-    description: shirt.description,
+    description: shirt.description || "No description available.", // Asegúrate de manejar el null
   };
 }
 
 export default async function ShirtPage({ params }: ShirtPageProps) {
-  const shirt = await db.shirt.findUnique({
+  const shirt: Shirt | null = await db.shirt.findUnique({ // Asegúrate de que shirt tenga el tipo Shirt
     where: { id: params.shirtId },
   });
 
