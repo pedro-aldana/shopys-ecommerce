@@ -1,0 +1,1 @@
+import * as FormAddAccessory  from './FormAddAccessory'

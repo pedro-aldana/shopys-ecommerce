@@ -1,0 +1,1 @@
+import * as FormAddShirt  from './FormAddShirt'

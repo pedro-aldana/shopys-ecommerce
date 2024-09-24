@@ -1,0 +1,1 @@
+import * as FormAddCategory  from './FormAddCategory'

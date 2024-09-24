@@ -1,0 +1,1 @@
+import * as TotalProducts  from './TotalProducts'
