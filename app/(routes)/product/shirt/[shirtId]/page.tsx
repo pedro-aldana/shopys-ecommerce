@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import { InfoProduct, Shirt } from "./components/InfoProduct/InfoProduct";
+import { InfoProduct } from "./components/InfoProduct/InfoProduct"; // Asegúrate de que la importación sea correcta
+import { Shirt as PrismaShirt } from "@prisma/client"; // Asegúrate de que estás importando el tipo correcto
 
 interface ShirtPageProps {
   params: {
@@ -9,7 +10,6 @@ interface ShirtPageProps {
   };
 }
 
-// Ajuste en el tipo de shirt para que sea compatible
 export async function generateMetadata({ params }: ShirtPageProps) {
   const shirt = await db.shirt.findUnique({
     where: { id: params.shirtId },
@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: ShirtPageProps) {
 
   return {
     title: `${shirt.productName} | Shopy's`,
-    description: shirt.description || "No description available.", // Asegúrate de manejar el null
+    description: shirt.description || "No description available.", // Manejar el null
   };
 }
 
 export default async function ShirtPage({ params }: ShirtPageProps) {
-  const shirt: Shirt | null = await db.shirt.findUnique({ // Asegúrate de que shirt tenga el tipo Shirt
+  const shirt: PrismaShirt | null = await db.shirt.findUnique({ // Asegúrate de que shirt tenga el tipo PrismaShirt
     where: { id: params.shirtId },
   });
 
@@ -48,7 +48,7 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
         </div>
 
         <div className="sm:px-12">
-          <InfoProduct shirt={shirt} />
+          <InfoProduct shirt={shirt} /> {/* Asegúrate de que esto pase el tipo correcto */}
         </div>
       </div>
     </div>
