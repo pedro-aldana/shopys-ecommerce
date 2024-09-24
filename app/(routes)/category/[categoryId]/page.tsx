@@ -53,7 +53,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="grid gap-5 mt-8 md:grid-cols-3 md:gap-10">
         {products.length > 0 ? (
           products.map((product) => (
-            <ProductCard key={product.id} products={product} />
+            <ProductCard key={product.id} product={product} />
           ))
         ) : (
           <p>No hay productos disponibles en esta categoría.</p>

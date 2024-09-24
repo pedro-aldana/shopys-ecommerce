@@ -10,9 +10,9 @@ export class TabsForms extends React.Component {
     render() {
       return (
         <Tabs defaultValue="signin" className="w-[400px]">
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full ">
             <TabsTrigger value="signin">Ingresar</TabsTrigger>
-            <TabsTrigger value="signup">Registrarse</TabsTrigger>
+            {/* <TabsTrigger value="signup">Registrarse</TabsTrigger> */}
           </TabsList>
           <TabsContent value="signin">
             <Card>
@@ -21,13 +21,13 @@ export class TabsForms extends React.Component {
               </CardContent>
             </Card>
           </TabsContent>
-          <TabsContent value="signup">
+          {/* <TabsContent value="signup">
             <Card>
               <CardContent className="space-y-2">
                 <RegisterForm/>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
         </Tabs>
       );
     }
