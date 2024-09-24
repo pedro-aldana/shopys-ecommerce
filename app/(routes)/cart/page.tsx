@@ -34,7 +34,7 @@ export default function CartPage() {
       <h1 className='mb-5 text-3xl font-bold'>Carrito de Compras</h1>
 
       {cart.shirts.length === 0 && cart.cups.length === 0 ? (
-        <div className='text-lg'>Tu carrito está vacío 🛒</div>
+        <div className='text-lg'>Tu carrito está vacío 🛒, empieza poniendo un producto </div>
       ) : (
         <div className='grid sm:grid-cols-2 sm:gap-5'>
           <div>
