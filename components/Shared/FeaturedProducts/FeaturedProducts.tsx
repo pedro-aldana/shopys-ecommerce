@@ -21,7 +21,7 @@ export function FeaturedProducts(props: FeaturedProductsProps) {
 
     return (
         <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
-            <h3 className="px-6 text-2xl sm:pb-8 uppercase">Camisas más vendidas</h3>
+            <h3 className="px-6 text-2xl sm:pb-8 uppercase">Camisas Destacadas</h3>
             <Carousel>
                 <CarouselContent className="-ml-2 md:-ml-4">
                     {shirts.map((shirt) => (
